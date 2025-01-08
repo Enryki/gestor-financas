@@ -1,0 +1,32 @@
+:host {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+  }
+  
+  .card-login {
+    width: 300px;
+  }
+  
+  mat-form-field{
+    width: 100%;
+  }
+  
+  mat-card-actions{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  mat-card-title{
+    font-size: 30px;
+    padding-bottom: 15px;
+  }
+  
+  mat-card-header{
+    justify-content: center;
+  }
+  
+  .registrar{
+    padding-bottom: 15px;
+  }
+

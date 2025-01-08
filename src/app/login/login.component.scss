@@ -13,15 +13,19 @@ mat-form-field{
 }
 
 mat-card-actions{
-  justify-content: end;
-}
-
-
-mat-card-header{
-  padding-bottom: 15px;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 mat-card-title{
   font-size: 30px;
+  padding-bottom: 15px;
+}
+
+mat-card-header{
+  justify-content: center;
+}
+
+.entrar{
+  padding-bottom: 15px;
 }

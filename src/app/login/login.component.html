@@ -5,7 +5,7 @@
   <mat-card-content>
     <form class="example-form" (keydown.enter)="validar_login()">
       <mat-form-field class="input" appearance="outline">
-        <mat-label>Usuário</mat-label>
+        <mat-label>E-mail ou Usuário</mat-label>
         <input matInput autocomplete="username">
       </mat-form-field>
 
@@ -27,6 +27,15 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-      <button mat-flat-button (click)="validar_login()">Entrar</button>
+      <div class="entrar">
+        <button mat-flat-button (click)="validar_login()">Entrar</button>
+      </div>
+      <div class="esqueci">
+        <button mat-button (click)="esqueci()">Esqueci a senha</button>
+
+      </div>
+      <div class="registrar">
+        <button mat-button (click)="registro()">Registrar</button>
+      </div>
   </mat-card-actions>
 </mat-card>
