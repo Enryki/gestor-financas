@@ -1,0 +1,39 @@
+:host {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+  }
+  
+.card-login {
+  width: 300px;
+}
+
+mat-form-field{
+  width: 100%;
+}
+
+mat-card-actions{
+  display: flex;
+  justify-content: center;
+}
+
+mat-card-title{
+  font-size: 30px;
+  padding-bottom: 15px;
+  margin-top: 5px
+}
+
+mat-card-header{
+  justify-content: center;
+}
+
+.recuperar{
+  padding-bottom: 15px;
+}
+
+.voltar{
+  background-color:#FAF9FD;
+  box-shadow: none;
+}
+
+

@@ -4,10 +4,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-registrar',
-  imports: [MatCardModule, MatInputModule, MatIconModule, FormsModule, MatButtonModule],
+  imports: [MatCardModule, MatInputModule, MatIconModule, FormsModule, MatButtonModule, RouterModule],
   templateUrl: './registrar.component.html',
   styleUrl: './registrar.component.scss'
 })
