@@ -1,20 +1,28 @@
 import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormBuilder, FormGroup } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [MatCardModule, MatInputModule, MatIconModule, FormsModule, MatButtonModule],
+  imports: [CommonModule, MatCardModule, MatInputModule, MatIconModule, FormsModule, MatButtonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 
 export class LoginComponent {
-  constructor(private router: Router) {}
+  loginForm: FormGroup;
+  constructor(private router: Router, private fb: FormBuilder) {
+    this.loginForm = this.fb.group({
+      usuario: [''],
+      senha: [''],
+    });
+  }
 
   hide = signal(true);
   clickEvent(event: MouseEvent) {
@@ -22,12 +30,13 @@ export class LoginComponent {
     event.stopPropagation();
   }
 
+  validar_login(): void {
+    const { usuario, senha } = this.loginForm.value;
+    // adicionara validação com o back-end no futuro
 
-  usuario = ''
-  senha = '';
-
-  validar_login(){
-    console.log('a função entrou!');
+    if(usuario == 'teste' && senha == "123"){
+      this.router.navigate(['/home']);
+    }
   }
 
   esqueci(){
