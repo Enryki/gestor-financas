@@ -1,6 +1,11 @@
 <mat-toolbar>
   <span>Gestão de Finanças</span>
   <span class="example-spacer"></span>
+  <ng-container *ngIf="isHome">
+    <a mat-button [routerLink]="'/'" routerLinkActive="active">Home</a>
+    <a mat-button [routerLink]="'/'" routerLinkActive="active">About</a>
+    <a mat-button [routerLink]="'/'" routerLinkActive="active">Contact</a>
+  </ng-container>
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
     <mat-icon>share</mat-icon>
   </button>

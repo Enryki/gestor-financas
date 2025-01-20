@@ -7,6 +7,7 @@ import { FormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { Router } from '@angular/router';
+import { AuthService } from '../../app/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,11 @@ import { Router } from '@angular/router';
 
 export class LoginComponent {
   loginForm: FormGroup;
-  constructor(private router: Router, private fb: FormBuilder) {
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private authService: AuthService // Corrigido: AuthService injetado aqui
+  ) {
     this.loginForm = this.fb.group({
       usuario: [''],
       senha: [''],
@@ -32,10 +37,11 @@ export class LoginComponent {
 
   validar_login(): void {
     const { usuario, senha } = this.loginForm.value;
-    // adicionara validação com o back-end no futuro
 
-    if(usuario == 'teste' && senha == "123"){
-      this.router.navigate(['/home']);
+    if (this.authService.login(usuario, senha)) {
+      this.router.navigate(['/home']); // Redireciona para a rota protegida
+    } else {
+      alert('Usuário ou senha inválidos!');
     }
   }
 

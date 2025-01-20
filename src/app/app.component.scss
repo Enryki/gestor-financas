@@ -8,3 +8,13 @@ app-login{
 }
 
 
+.mat-toolbar a {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.mat-toolbar a.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
