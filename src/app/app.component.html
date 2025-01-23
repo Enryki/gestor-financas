@@ -1,14 +1,17 @@
-<mat-toolbar>
-  <span>Gestão de Finanças</span>
-  <span class="example-spacer"></span>
+<mat-toolbar style="justify-content:left;">
+  <span class="titulo">Gestão de Finanças</span>
   <ng-container *ngIf="isHome">
+    <div class="vertical-separator"></div>
     <a mat-button [routerLink]="'/'" routerLinkActive="active">Home</a>
     <a mat-button [routerLink]="'/'" routerLinkActive="active">About</a>
     <a mat-button [routerLink]="'/'" routerLinkActive="active">Contact</a>
+
+    <span class="spacer"></span>
+
+    <button mat-button class="botao-sair" aria-label="Logout">
+      <mat-icon>logout</mat-icon>Sair
+    </button>
   </ng-container>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
-  </button>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
