@@ -7,4 +7,5 @@ export const routes: Routes = [
   { path: 'registrar', loadComponent: () => import('./registrar/registrar.component').then(m => m.RegistrarComponent) },
   { path: 'recuperar_senha', loadComponent: () => import('./esqueci-senha/esqueci-senha.component').then(m => m.EsqueciSenhaComponent) },
   { path: 'home', canActivate: [AuthGuard], loadComponent: () => import('./home/home.component').then(m => m.HomeComponent) },
+  { path: 'inserir_valores', canActivate: [AuthGuard], loadComponent: () => import('./inserir-valores/inserir-valores.component').then(m => m.InserirValoresComponent) },
 ];

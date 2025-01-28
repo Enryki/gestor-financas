@@ -7,7 +7,7 @@ import { ChartConfiguration, ChartType } from 'chart.js';
   standalone: true,
   imports: [BaseChartDirective],
   templateUrl: './gastos-mensais.component.html',
-  styleUrls: ['./gastos-mensais.component.scss']
+  styleUrls: ['./gastos-mensais.component.scss'],
 })
 export class GastosMensaisComponent {
   public chartType: ChartType = 'bar';
@@ -19,7 +19,8 @@ export class GastosMensaisComponent {
     datasets: [
       {
         data: [1000, 950, 850, 1100, 600, 750, 775, 2500, 1000, 700, 2400, 3000],
-        label: 'R$',
+        label: 'R$ Gastos Mensais',
+        backgroundColor:  'rgba(75, 192, 192, 1)'
       },
     ],
   };
@@ -32,4 +33,5 @@ export class GastosMensaisComponent {
       },
     },
   };
+
 }
