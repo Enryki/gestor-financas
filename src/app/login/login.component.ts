@@ -36,12 +36,20 @@ export class LoginComponent {
 
   validar_login(): void {
     const { usuario, senha } = this.loginForm.value;
-
-    if (this.authService.login(usuario, senha)) {
-      this.router.navigate(['/home']); // Redireciona para a rota protegida
-    } else {
-      alert('Usuário ou senha inválidos!');
-    }
+    console.log('Iniciando login...');
+  
+    this.authService.login(usuario, senha).subscribe({
+      next: (sucesso) => {
+        console.log('Resultado do login:', sucesso);
+        if (sucesso) {
+          console.log('Token salvo:', this.authService.getToken());
+          this.router.navigate(['/home']);
+        } else {
+          alert('Usuário ou senha inválidos!');
+        }
+      },
+      error: (erro) => console.error('Erro no subscribe:', erro)
+    });
   }
 
   esqueci(){

@@ -1,19 +1,35 @@
 import { Injectable } from '@angular/core';
+import { ApiService } from './api.service';
+import { Observable } from 'rxjs/internal/Observable';
+import { catchError, map, of, tap } from 'rxjs';
+
+interface LoginResponse {
+  token: string;
+  // Outros campos, se houver (ex: 'user', 'expiresIn')
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private readonly TOKEN_KEY = 'authToken';
+  constructor(private apiService: ApiService) {}
 
-  // Simula o login armazenando um token (pode ser substituído por uma chamada à API)
-  login(usuario: string, senha: string): boolean {
-    if (usuario === 'teste' && senha === '123') {
-      localStorage.setItem(this.TOKEN_KEY, 'fake-jwt-token'); // Token fictício
-      return true; // Login bem-sucedido
-    }
-    return false; // Credenciais inválidas
+  login(usuario: string, senha: string): Observable<boolean> {
+    return this.apiService.enviarDados({ username: usuario, password: senha }).pipe(
+      map((resposta: LoginResponse) => {
+        if (resposta && resposta.token) {
+          localStorage.setItem('authToken', resposta.token);
+          return true;
+        }
+        return false;
+      }),
+      catchError(() => of(false))
+    );
   }
+  
+  
+  
 
 
   // Remove o token para simular o logout
@@ -22,9 +38,11 @@ export class AuthService {
   }
 
   // Verifica se o usuário está autenticado
-  isLoggedIn(): boolean {
-    return !!localStorage.getItem(this.TOKEN_KEY);
-  }
+isLoggedIn(): boolean {
+  const token = localStorage.getItem(this.TOKEN_KEY);
+  console.log('Token no localStorage:', token);  // Verifique se o token está no localStorage
+  return !!token;
+}
 
   // Retorna o token armazenado
   getToken(): string | null {

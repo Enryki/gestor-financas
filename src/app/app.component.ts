@@ -8,7 +8,7 @@ import { AuthService } from '../app/auth.service';
 
 @Component({
   selector: 'app-root',
-  imports: [MatIconModule, MatButtonModule, MatToolbarModule, RouterOutlet, CommonModule, RouterModule],
+  imports: [MatIconModule, MatButtonModule, MatToolbarModule, RouterOutlet, CommonModule, RouterModule ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
