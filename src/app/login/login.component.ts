@@ -6,7 +6,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { FormsModule, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { Router } from '@angular/router';
-import { AuthService } from '../../app/auth.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -36,8 +36,7 @@ export class LoginComponent {
 
   validar_login(): void {
     const { usuario, senha } = this.loginForm.value;
-    console.log('Iniciando login...');
-  
+
     this.authService.login(usuario, senha).subscribe({
       next: (sucesso) => {
         console.log('Resultado do login:', sucesso);

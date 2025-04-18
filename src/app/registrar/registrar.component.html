@@ -4,26 +4,26 @@
           <mat-icon>arrow_back</mat-icon>
       </a>
     </div>
-    
+
     <mat-card-header>
       <mat-card-title>Cadastro</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form class="example-form">
+      <form [formGroup]="registrarForm" class="example-form" (keydown.enter)="registrar()">
 
         <mat-form-field class="input" appearance="outline">
             <mat-label>Usuário</mat-label>
-            <input matInput autocomplete="username">
+            <input matInput autocomplete="username" formControlName="usuario">
           </mat-form-field>
 
         <mat-form-field class="input" appearance="outline">
           <mat-label>E-mail</mat-label>
-          <input type="email" matInput autocomplete="e-mail">
+          <input type="email" matInput autocomplete="e-mail" formControlName="email">
         </mat-form-field>
-  
+
         <mat-form-field class="input" appearance="outline">
           <mat-label>Senha</mat-label>
-          <input matInput [type]="hide() ? 'password' : 'text'" autocomplete="current-password"/>
+          <input matInput [type]="hide() ? 'password' : 'text'" autocomplete="current-password" formControlName="senha"/>
           <button
             mat-icon-button
             matSuffix
@@ -38,7 +38,7 @@
 
         <mat-form-field class="input" appearance="outline">
             <mat-label>Confirme sua senha</mat-label>
-            <input matInput [type]="hideconfirmation() ? 'password' : 'text'" autocomplete="current-password"/>
+            <input matInput [type]="hideconfirmation() ? 'password' : 'text'" autocomplete="current-password" formControlName="confirma_senha"/>
             <button
               mat-icon-button
               matSuffix
@@ -50,13 +50,12 @@
               <mat-icon>{{hideconfirmation() ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
           </mat-form-field>
-  
+
       </form>
     </mat-card-content>
     <mat-card-actions>
         <div class="registrar">
-          <button mat-flat-button>Registrar</button>
+          <button mat-flat-button (click)="registrar()">Registrar</button>
         </div>
     </mat-card-actions>
   </mat-card>
-  

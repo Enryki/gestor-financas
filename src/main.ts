@@ -4,7 +4,7 @@ import { appConfig } from './app/app.config';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { AuthInterceptor } from './app/auth.interceptor';
+import { AuthInterceptor } from './app/auth/auth.interceptor';
 import { routes } from './app/app.routes';
 
 bootstrapApplication(AppComponent, {

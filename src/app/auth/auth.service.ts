@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from './api.service';
+import { ApiService } from '../api.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, map, of, tap } from 'rxjs';
 
@@ -16,7 +16,7 @@ export class AuthService {
   constructor(private apiService: ApiService) {}
 
   login(usuario: string, senha: string): Observable<boolean> {
-    return this.apiService.enviarDados({ username: usuario, password: senha }).pipe(
+    return this.apiService.ValidarLogin({ username: usuario, password: senha }).pipe(
       map((resposta: LoginResponse) => {
         if (resposta && resposta.token) {
           localStorage.setItem('authToken', resposta.token);
@@ -27,9 +27,9 @@ export class AuthService {
       catchError(() => of(false))
     );
   }
-  
-  
-  
+
+
+
 
 
   // Remove o token para simular o logout

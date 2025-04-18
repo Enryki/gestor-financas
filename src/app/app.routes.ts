@@ -1,11 +1,16 @@
 import { Routes } from '@angular/router';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './auth/auth.guard';
+import { LoginComponent } from './login/login.component';
+import { RegistrarComponent } from './registrar/registrar.component';
+import { EsqueciSenhaComponent } from './esqueci-senha/esqueci-senha.component';
+import { HomeComponent } from './home/home.component';
+import { InserirValoresComponent } from './inserir-valores/inserir-valores.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', loadComponent: () => import('./login/login.component').then(m => m.LoginComponent) },
-  { path: 'registrar', loadComponent: () => import('./registrar/registrar.component').then(m => m.RegistrarComponent) },
-  { path: 'recuperar_senha', loadComponent: () => import('./esqueci-senha/esqueci-senha.component').then(m => m.EsqueciSenhaComponent) },
-  { path: 'home', canActivate: [AuthGuard], loadComponent: () => import('./home/home.component').then(m => m.HomeComponent) },
-  { path: 'inserir_valores', canActivate: [AuthGuard], loadComponent: () => import('./inserir-valores/inserir-valores.component').then(m => m.InserirValoresComponent) },
+  { path: 'login', component: LoginComponent },
+  { path: 'registrar', component: RegistrarComponent },
+  { path: 'recuperar_senha', component: EsqueciSenhaComponent },
+  { path: 'home', canActivate: [AuthGuard], component: HomeComponent },
+  { path: 'inserir_valores', canActivate: [AuthGuard], component: InserirValoresComponent },
 ];
