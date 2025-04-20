@@ -24,7 +24,8 @@ export class RegistrarComponent {
     this.registrarForm = this.fb.group({
       usuario: [''],
       email: [''],
-      senha: ['']
+      senha: [''],
+      confirma_senha: ['']
     });
   }
 
@@ -43,12 +44,13 @@ export class RegistrarComponent {
   registrar(){
     const { usuario, email, senha, confirma_senha } = this.registrarForm.value;
 
+    console.log(confirma_senha + senha);
     if (senha != confirma_senha){
       alert("As senhas precisam ser iguais");
       return;
     }
 
-    this.UserService.registrar(usuario, email, senha).subscribe({
+    this.UserService.registrar(usuario, email, senha, confirma_senha).subscribe({
       next: (resposta) => {
         localStorage.setItem('authToken', resposta.token);
         this.router.navigate(['/home']);
