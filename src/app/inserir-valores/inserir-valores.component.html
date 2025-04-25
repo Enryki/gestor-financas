@@ -17,6 +17,27 @@
                 <mat-icon matSuffix>attach_money</mat-icon>
             </mat-form-field>
           </p>
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Categoria</mat-label>
+              <mat-select formControlName="categoria">
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="observacao" appearance="outline" hideRequiredMarker>
+              <mat-label>Observação</mat-label>
+              <textarea matInput formControlName="observacao"></textarea>
+          </mat-form-field> 
+          </p>
+
+          <div class="insere">
+            <button mat-button (click)="insere_valor()">Inserir</button>
+    
+          </div>
+          
         </form>
     </mat-card-content>
 </mat-card>

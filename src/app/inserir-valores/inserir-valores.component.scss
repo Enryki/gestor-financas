@@ -5,10 +5,16 @@
   }
 
 .card-inserir{
-    width: 700px;
+    width: 400px;
+  align-items: center;
 }
 
 mat-card-title{
   font-size: 30px;
   padding-bottom: 15px;
+
+}
+
+mat-form-field{
+  width: 200px;
 }
